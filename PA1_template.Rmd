@@ -128,7 +128,7 @@ plot(g)
 
  For completeness let's look at the mean of the original and new aggregations
 
-```{r echo=FALSE}
+```{r}
 mean(steps_by_day$total_steps,na.rm=TRUE)
 mean(steps_by_day_2$total_steps,na.rm=TRUE)
 ```
