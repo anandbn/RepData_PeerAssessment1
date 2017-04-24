@@ -134,8 +134,16 @@ Now let's compare the histograms of with and without na values replaced.
  For completeness let's look at the mean of the original and new aggregations
 
 
+```r
+mean(steps_by_day$total_steps,na.rm=TRUE)
+```
+
 ```
 ## [1] 10766.19
+```
+
+```r
+mean(steps_by_day_2$total_steps,na.rm=TRUE)
 ```
 
 ```
