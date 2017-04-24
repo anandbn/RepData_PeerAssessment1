@@ -58,13 +58,15 @@ __Note__ : You'll notice the `## Warning` telling us about `NA` values. We'll lo
 summary(steps_by_day)
 ```
 
-From the above table we can see the mean of the Total steps per day is :
+From the above table we can see the mean & median of the Total steps per day is :
 
 ```{r echo=FALSE,message=FALSE}
 library(dplyr)
 steps_by_day <- thedata %>% group_by(date) %>% summarise(total_steps = sum(steps),avg_steps = mean(steps,na.rm=TRUE))
 steps_by_day$source <- "original"
 mean(steps_by_day$total_steps,na.rm=TRUE)
+median(steps_by_day$total_steps,na.rm=TRUE)
+
 ```
 
 __Note__ : We use `na.rm=TRUE` to skip `NA` values when calculating the mean. 
@@ -126,11 +128,18 @@ g <- g + labs(y="Total Steps",title="Total steps by Day")
 plot(g)
 ```
 
- For completeness let's look at the mean of the original and new aggregations
+For completeness let's look at the mean of the original and new aggregations
 
 ```{r}
 mean(steps_by_day$total_steps,na.rm=TRUE)
 mean(steps_by_day_2$total_steps,na.rm=TRUE)
+```
+
+For completeness let's look at the median of the original and new aggregations
+
+```{r}
+median(steps_by_day$total_steps,na.rm=TRUE)
+median(steps_by_day_2$total_steps,na.rm=TRUE)
 ```
 
 As you can see because we used the mean of steps for that interval, the overall pattern did not significantly change and mean was identical. If we used a different strategy to fill `NA` values the results would have been different.

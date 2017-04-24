@@ -154,8 +154,9 @@ steps_by_day$source &lt;- &quot;original&quot;</code></pre>
 ##  3rd Qu.:2012-11-15   3rd Qu.:13294   3rd Qu.:46.1597                     
 ##  Max.   :2012-11-30   Max.   :21194   Max.   :73.5903                     
 ##                       NA's   :8       NA's   :8</code></pre>
-<p>From the above table we can see the mean of the Total steps per day is :</p>
+<p>From the above table we can see the mean &amp; median of the Total steps per day is :</p>
 <pre><code>## [1] 10766.19</code></pre>
+<pre><code>## [1] 10765</code></pre>
 <p><strong>Note</strong> : We use <code>na.rm=TRUE</code> to skip <code>NA</code> values when calculating the mean.</p>
 </div>
 <div id="what-is-the-average-daily-activity-pattern" class="section level2">
@@ -190,6 +191,11 @@ merged &lt;- rbind(steps_by_day,steps_by_day_2)</code></pre>
 <pre class="r"><code>mean(steps_by_day$total_steps,na.rm=TRUE)</code></pre>
 <pre><code>## [1] 10766.19</code></pre>
 <pre class="r"><code>mean(steps_by_day_2$total_steps,na.rm=TRUE)</code></pre>
+<pre><code>## [1] 10766.19</code></pre>
+<p>For completeness let’s look at the median of the original and new aggregations</p>
+<pre class="r"><code>median(steps_by_day$total_steps,na.rm=TRUE)</code></pre>
+<pre><code>## [1] 10765</code></pre>
+<pre class="r"><code>median(steps_by_day_2$total_steps,na.rm=TRUE)</code></pre>
 <pre><code>## [1] 10766.19</code></pre>
 <p>As you can see because we used the mean of steps for that interval, the overall pattern did not significantly change and mean was identical. If we used a different strategy to fill <code>NA</code> values the results would have been different.</p>
 </div>

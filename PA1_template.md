@@ -63,11 +63,15 @@ __Note__ : You'll notice the `## Warning` telling us about `NA` values. We'll lo
 ##                       NA's   :8       NA's   :8
 ```
 
-From the above table we can see the mean of the Total steps per day is :
+From the above table we can see the mean & median of the Total steps per day is :
 
 
 ```
 ## [1] 10766.19
+```
+
+```
+## [1] 10765
 ```
 
 __Note__ : We use `na.rm=TRUE` to skip `NA` values when calculating the mean. 
@@ -131,7 +135,7 @@ Now let's compare the histograms of with and without na values replaced.
 
 ![](PA1_template_files/figure-html/unnamed-chunk-12-1.png)<!-- -->
 
- For completeness let's look at the mean of the original and new aggregations
+For completeness let's look at the mean of the original and new aggregations
 
 
 ```r
@@ -144,6 +148,25 @@ mean(steps_by_day$total_steps,na.rm=TRUE)
 
 ```r
 mean(steps_by_day_2$total_steps,na.rm=TRUE)
+```
+
+```
+## [1] 10766.19
+```
+
+For completeness let's look at the median of the original and new aggregations
+
+
+```r
+median(steps_by_day$total_steps,na.rm=TRUE)
+```
+
+```
+## [1] 10765
+```
+
+```r
+median(steps_by_day_2$total_steps,na.rm=TRUE)
 ```
 
 ```
@@ -173,4 +196,4 @@ steps_by_day_type$interval <- as.numeric(as.character(steps_by_day_type$interval
 
 Now let's do a side by side comparison of average of steps for weekdays and weekends.
 
-![](PA1_template_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
+![](PA1_template_files/figure-html/unnamed-chunk-17-1.png)<!-- -->
